@@ -7,6 +7,6 @@ export class OrderSummaryPage {
 
   public checkOrderConfirmation() {
     cy.get(this.orderConfirmation)
-      .should('have.text', 'Your order on My Store is complete.');
+      .contains('Your order on My Store is complete.');
   }
 }
