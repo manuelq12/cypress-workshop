@@ -2,7 +2,7 @@ export class PaymentStepPage {
   private bankOption: string;
 
   constructor () {
-    this.bankOption = '#HOOK_PAYMENT > div:nth-child(1) > div > p > a';
+    this.bankOption = '.bankwire';
   }
 
   public goToBankOption() {

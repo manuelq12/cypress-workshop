@@ -2,7 +2,7 @@ export class AddressStepPage {
   private nextStep: string;
 
   constructor () {
-    this.nextStep = '#center_column > form > p > button > span';
+    this.nextStep = '[name="processAddress"]';
   }
 
   public goToShippingStepPage() {
