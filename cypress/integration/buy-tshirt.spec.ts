@@ -1,20 +1,33 @@
+import { MenuContentPage, ProductsListPage,
+  ProductAddedPage, SummaryStepPage,
+  SignInStepPage, AddressStepPage,
+  ShippingStepPage, PaymentStepPage,
+  BankPaymentPage, OrderSummaryPage } from '../page';
+
 describe('Buy a t-shirt', () => {
+  const menuContentPage: MenuContentPage = new MenuContentPage();
+  const productsListPage: ProductsListPage = new ProductsListPage();
+  const productAddedPage: ProductAddedPage = new ProductAddedPage();
+  const summaryPage: SummaryStepPage = new SummaryStepPage();
+  const signInPage: SignInStepPage = new SignInStepPage();
+  const addressStepPage: AddressStepPage = new AddressStepPage();
+  const shippingStepPage: ShippingStepPage = new ShippingStepPage();
+  const paymentStepPage: PaymentStepPage = new PaymentStepPage();
+  const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
+  const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
+
   it('Then should be bought a t-shirt', () => {
     cy.visit('http://automationpractice.com/');
-    cy.get('#block_top_menu > ul > li:nth-child(3) > a').click();
-    cy.get('#center_column a.button.ajax_add_to_cart_button.btn.btn-default').click();
-    cy.get('[style*="display: block;"] .button-container > a').click();
-    cy.get('.cart_navigation span').click();
-    cy.get('#email').type('cubillosalejandro0212@gmail.com');
-    cy.get('#passwd').type('WorkshopProtractor');
-    cy.get('#SubmitLogin > span').click();
-
-    cy.get('#center_column > form > p > button > span').click();
-    cy.get('#cgv').click();
-    cy.get('#form > p > button > span').click();
-    cy.get('#HOOK_PAYMENT > div:nth-child(1) > div > p > a').click();
-    cy.get('#cart_navigation > button > span').click();
-    cy.get('#center_column > div > p > strong')
-      .should('have.text', 'Your order on My Store is complete.');
+    menuContentPage.goToTShirtMenu();
+    productsListPage.selectTShirt();
+    productAddedPage.goToSummaryStepPage();
+    summaryPage.goToSignInStepPage();
+    signInPage.goToAddressStepPage('cubillosalejandro0212@gmail.com', 'WorkshopProtractor');
+    addressStepPage.goToShippingStepPage();
+    shippingStepPage.acceptTerms();
+    shippingStepPage.goToPaymentStepPage();
+    paymentStepPage.goToBankOption();
+    bankPaymentPage.goToOrderSummaryPage();
+    orderSummaryPage.checkOrderConfirmation();
   });
 });
