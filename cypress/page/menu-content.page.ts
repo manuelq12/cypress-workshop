@@ -1,13 +1,13 @@
 export class MenuContentPage {
-  private OptionList: string;
+  private optionList: string;
 
   constructor () {
-    this.OptionList = '#block_top_menu > ul';
+    this.optionList = '#block_top_menu > ul';
   }
 
   public goToTShirtMenu() {
-    cy.get(this.OptionList).within(($list) => {
+    cy.get(this.optionList).within(($list) => {
       cy.get('li').last().click();
-    })
+    });
   }
 }
