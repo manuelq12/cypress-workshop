@@ -2,7 +2,7 @@ export class ProductsListPage {
   private tShirt: string;
 
   constructor () {
-    this.tShirt = 'a[title="Add to cart"]';
+    this.tShirt = '[title="Add to cart"]';
   }
 
   public selectTShirt() {
