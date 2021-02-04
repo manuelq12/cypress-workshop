@@ -2,7 +2,7 @@ export class ProductAddedPage {
   private summaryPage: string;
 
   constructor () {
-    this.summaryPage = '[style*="display: block;"] .button-container > a';
+    this.summaryPage = '[title="Proceed to checkout"]';
   }
 
   public goToSummaryStepPage() {

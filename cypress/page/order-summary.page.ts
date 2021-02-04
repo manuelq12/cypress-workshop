@@ -2,7 +2,7 @@ export class OrderSummaryPage {
   private orderConfirmation: string;
 
   constructor () {
-    this.orderConfirmation = '#center_column > div > p > strong';
+    this.orderConfirmation = '.cheque-indent';
   }
 
   public checkOrderConfirmation() {
